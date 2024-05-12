@@ -1,9 +1,8 @@
 export interface User {
-  id: number
-  name: string
-  email: string
-  country: string
+  id: string;
+  name: string;
+  email: string;
+  country: string;
 }
 
-
-export type NewUser = Omit<User, "id">
+export type NewUser = Omit<User, "id">;

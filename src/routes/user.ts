@@ -1,23 +1,14 @@
-import express from 'express'
-import { addUser, getAllUsers } from '../services/user'
+import { Router } from "express";
+import { UserController } from "../controllers/user";
 
-const router = express.Router()
+export const createUserRouter = ({ userModel }: any) => {
+  const router = Router();
 
+  const userController = new UserController({ userModel });
 
-router.post('/', (req, res) => {
- try {
-   const { name, email, country } = req.body
- 
-   const newUser = addUser({ name, email, country })
- 
-   res.json(newUser);
- } catch (error) {
-  res.status(404).send((error as Error).message)
- }
-})
+  router.post("/", userController.create);
 
-router.get('/', (_req, res) => {
-  res.send(getAllUsers())
-})
+  router.get("/", userController.getAll);
 
-export default router
+  return router;
+};

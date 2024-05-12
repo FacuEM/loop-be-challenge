@@ -1,11 +1,12 @@
-import express from 'express'
-import { getFavCountries } from '../services/country'
+import { Router } from "express";
+import { CountryController } from "../controllers/country";
 
-const router = express.Router()
+export const createCountryRouter = ({ countryModel }: any) => {
+  const router = Router();
 
-router.get('/', async (_req, res) => {
-  const favCountries = await getFavCountries()
-   res.send(favCountries)
-})
+  const countryController = new CountryController({ countryModel });
 
-export default router
+  router.get("/", countryController.getAll);
+
+  return router;
+};
