@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/index.js",
     "dev": "ts-node-dev src/index.ts",
+    "populate-db": "ts-node-dev src/scripts/populateCountries.ts",
     "lint": "ts-standard"
   },
   "keywords": [],
@@ -22,6 +23,7 @@
   "dependencies": {
     "axios": "^1.6.8",
     "express": "4.19.2",
+    "mongoose": "^8.4.0",
     "mysql2": "^3.9.7",
     "zod": "^3.23.8"
   },

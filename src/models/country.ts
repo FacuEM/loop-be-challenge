@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export class CountryModel {
-  static async getAll() {
+  static async getTopVotedCountries() {
     try {
       const response = await axios.get(
         "https://restcountries.com/v3.1/all?fields=name,capital,region,subregion"

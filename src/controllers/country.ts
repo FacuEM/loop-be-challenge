@@ -7,8 +7,8 @@ export class CountryController {
   }
 
   getAll = async (_req: Request, res: Response) => {
-    const movies = await this.countryModel.getAll();
+    const countries = await this.countryModel.getTopVotedCountries();
 
-    res.json(movies);
+    res.json(countries);
   };
 }
