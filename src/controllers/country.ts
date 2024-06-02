@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
 
 export class CountryController {
-  countryModel: any;
-  constructor({ countryModel }: { countryModel: any }) {
-    this.countryModel = countryModel;
-  }
+  constructor(private countryModel: any) {}
 
   getAll = async (_req: Request, res: Response) => {
     const countries = await this.countryModel.getTopVotedCountries();

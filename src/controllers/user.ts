@@ -2,10 +2,7 @@ import { Request, Response } from "express";
 import { validateUser } from "../schemas/users";
 
 export class UserController {
-  userModel: any;
-  constructor({ userModel }: { userModel: any }) {
-    this.userModel = userModel;
-  }
+  constructor(private userModel: any) {}
 
   getAll = async (_req: Request, res: Response) => {
     const users = await this.userModel.getAll();
