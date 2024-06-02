@@ -14,7 +14,7 @@ export class UserController {
   };
 
   create = async (req: Request, res: Response) => {
-    const result = validateUser(req.body);
+    const result = await validateUser(req.body);
 
     if (result.error) {
       return res.status(400).json({ error: result.error.message });
